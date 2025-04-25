@@ -1,0 +1,24 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "wsgi.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/",
+        "dest": "/api/wsgi"
+      },
+      {
+        "src": "/sendemail/",
+        "methods": ["POST"],
+        "dest": "/api/wsgi"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/api/wsgi"
+      }
+    ]
+  }
