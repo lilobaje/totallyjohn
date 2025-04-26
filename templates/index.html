@@ -34,10 +34,10 @@
                             </div>
                         </div>
                         <ul class="main-nav">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Portfolio</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="#hero">Home</a></li>
+                            <li><a href="#projects">Portfolio</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
                         </ul>
                     </nav>
                     <div class="hero-text">
@@ -57,7 +57,7 @@
         </div>
     </header>
 
-    <section class="case-study">
+    <section id="projects" class="case-study">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -105,34 +105,65 @@
         </div>
     </section>
 
-    
-    <section class="contact">
+    <section id="about" class="about">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <h4 class="sub-heading">Contact</h4>
-                    <h1 class="heading"><span class="purple">Get in</span> Touch</h1>
-                    <p class="lead text-center">Have a project in mind or just want to say hello? Feel free to reach out!</p>
-                    <form action="#" method="POST">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-lg btn-primary">Send Message</button>
-                        </div>
-                    </form>
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <h4 class="sub-heading">About Me</h4>
+                    <h1 class="heading"><span class="purple">Get to</span> Know Me</h1>
+                    <img src="{{ url_for('static', filename='assets/profile.jpg') }}" alt="Your Profile Picture" class="profile-image img-circle">
+                    <p class="lead">A passionate and results-driven full-stack web developer based in Nigeria, with a strong foundation in both front-end and back-end technologies. I thrive on creating innovative and user-friendly web applications that solve real-world problems.</p>
+                    <p>Over the years, I've had the opportunity to work on a variety of projects, from dynamic websites and e-commerce platforms to robust back-end systems and APIs. I'm proficient in technologies such as Python, Django, Flask, JavaScript, React, HTML, CSS, and various database systems. I'm a firm believer in clean, efficient code and continuous learning.</p>
+                    <p>My goal is to leverage my skills and passion to contribute to meaningful projects and collaborate with like-minded individuals and organizations. I'm always eager to take on new challenges and expand my technical horizons.</p>
+                    <ul class="skills-list">
+                        <li><strong>Front-End:</strong> HTML, CSS, JavaScript, React, Bootstrap</li>
+                        <li><strong>Back-End:</strong> Python, Django, Flask, Node.js (Optional)</li>
+                        <li><strong>Databases:</strong> PostgreSQL, MySQL, MongoDB (Optional)</li>
+                        <li><strong>Tools:</strong> Git, Docker (Optional), VS Code</li>
+                        <li><strong>Other:</strong> RESTful APIs, Agile Methodologies</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">View My Resume</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="contact-banner">
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <h4 class="sub-heading">Contact</h4>
+                    <h1 class="heading"><span class="purple">Let's</span> Connect</h1>
+                    <p class="lead">Have a project in mind or just want to say hello? Feel free to reach out! I'm always open to new opportunities and collaborations.</p>
+                    <div id="contact-form">
+                        <form method="POST" action="{{ url_for('submit_contact') }}">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-lg btn-primary">Send Message</button>
+                        </form>
+                        <div id="form-response" class="mt-3">
+                            {% if success %}
+                            <div class="alert alert-success">{{ success }}</div>
+                            {% elif error %}
+                            <div class="alert alert-danger">{{ error }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <ul class="contact-info">
+                        <li><strong>Email:</strong> <a href="mailto:your.email@example.com">obajejohn001@gmail.com</a></li>
+                        <li><strong>LinkedIn:</strong> <a href="your_linkedin_profile_url" target="_blank">linkedin.com/in/yourprofile</a> (Optional)</li>
+                        <li><strong>GitHub:</strong> <a href="https://github.com/yourusername" target="_blank">github.com/lilobaje</a></li>
+                        </ul>
+                </div>
+            </div>
+        </div>
     </section>
 
     <footer>
